@@ -7,10 +7,10 @@ import { removeFilter, clearFilter, selectFilters } from "./filter-slice";
 
 const FilterPanel = () => {
   const currentFilters = useSelector(selectFilters);
-  const dispatch = useDispatch(currentFilters)
+  const dispatch = useDispatch(currentFilters);
 
-  if(currentFilters.length === 0) {
-    return null
+  if (currentFilters.length === 0) {
+    return null;
   }
 
   return (
@@ -18,16 +18,19 @@ const FilterPanel = () => {
       <div className="filter-panel-wrapper">
         <Stack>
           {currentFilters.map((filter) => (
-            <Badge 
-            variant="clearable" 
-            key={filter}
-            onClear={() => dispatch(removeFilter(filter))}>
+            <Badge
+              variant="clearable"
+              key={filter}
+              onClear={() => dispatch(removeFilter(filter))}
+            >
               {filter}
             </Badge>
           ))}
         </Stack>
 
-        <button className="link" onClick={() => dispatch(clearFilter())}>Clear</button>
+        <button className="link" onClick={() => dispatch(clearFilter())}>
+          Clear
+        </button>
       </div>
     </Card>
   );
